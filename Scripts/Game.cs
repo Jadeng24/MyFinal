@@ -15,12 +15,30 @@ giving them a better chance of winning. if they do buy something, their bank acc
 decreased according to the price of the item bought. 
 
 */
-
+//Game Class
 public class Game {   
-    public void Start () {
-       
-   
-        Console.WriteLine("This game is all about Customizing your car and racing against other players! ");
+    public Game () {
+        
     }
+    //below is my game from beginning to end.
+    public void Start () {
+        Console.WriteLine("This game is all about Customizing your car and racing against other players! ");
+        Console.WriteLine("Please type in your username.");
+        name = Console.ReadLine();
+        Console.WriteLine("Your username is " + name);
+        
+    
+    
 
+
+    
+    }
+    
+
+
+
+//here are my attributes to my game.__________________________________________________
+
+//Player name
+public string name; 
 }
