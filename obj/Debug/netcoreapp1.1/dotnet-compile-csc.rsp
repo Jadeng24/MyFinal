@@ -83,3 +83,4 @@
 -r:"C:\Users\10761661\.nuget\packages\System.Xml.ReaderWriter\4.3.0-preview1-24530-04\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\10761661\.nuget\packages\System.Xml.XDocument\4.3.0-preview1-24530-04\ref\netstandard1.3\System.Xml.XDocument.dll"
 "C:\Users\10761661\MyFinal\Program.cs"
+"C:\Users\10761661\MyFinal\Scripts\Game.cs"
