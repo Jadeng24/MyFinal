@@ -16,29 +16,86 @@ decreased according to the price of the item bought.
 
 */
 //Game Class
-public class Game {   
-    public Game () {
-        
-    }
+public class Game
+{
+
     //below is my game from beginning to end.
-    public void Start () {
-        Console.WriteLine("This game is all about Customizing your car and racing against other players! ");
-        Console.WriteLine("Please type in your username.");
+    public void Start()
+    {
+
+
+        Console.WriteLine(" \nThis game is all about Customizing your car and racing against other players! ");
+        GameTimer();
+        //enter name
+        Console.WriteLine("   \nPlease type in your username.");
         name = Console.ReadLine();
-        Console.WriteLine("Your username is " + name);
-        
-    
-    
+        GameTimer();
+        Console.WriteLine("Your username is_____" + name + "_____.");
+        GameTimer();
 
+        //enter Password
+        Console.WriteLine("   \nPlease Enter a password", "Password must have a length of 4 or more.");
+        password = Console.ReadLine();
+        GameTimer();
+        if (password.Length > 4)
+        {
+            Console.WriteLine("For now on, your password is_____" + password + "____.");
+        }
+        else if (password.Length <= 4)
+        {
+            Console.WriteLine("Sorry, you must Enter a valid password with 5 or more letters.");
 
-    
+            password = Console.ReadLine();
+            Console.WriteLine(password + " is much better.");
+            GameTimer();
+        }
+        Console.WriteLine("     \n \n \nNow its time to choose your vehicle. \n   In Road Race, there is a wide variety of vehicles to choose from. \n     PRESS ANY KEY TO CONTINUE . . .");
+            Console.ReadKey();
+        Console.WriteLine("  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \nEach vehicle has different attributes of\n    TOP SPEED\n    ACCELERATION and\n    HANDLING. \n Now Choose Between Sports Car, Trophy Truck, Rally Car, or Dirt Bike.");
+        vehicleChoice = Console.ReadLine().ToLower();
+
+        switch (vehicleChoice)
+        {
+            case "sports car":
+                Console.WriteLine(" \nYou have chosen a Sports Car! Your sports car is a " + Ferrari.CarName + " \n ---Top speed is: " + Ferrari.TopSpeed + " \n ---Acceleration is: " + Ferrari.Acceleration + " \n ---Handling is: " + Ferrari.Handling + "% ");
+                break;
+            case "trophy truck":
+                break;
+            case "rally car":
+                break;
+            case "dirt bike":
+                break;
+            default:
+                break;
+        }
     }
-    
 
 
 
-//here are my attributes to my game.__________________________________________________
+    //here are my attributes to my game.__________________________________________________
 
-//Player name
-public string name; 
+    //Player name & password
+    public string name;
+    public string password;
+
+    // vehicle choice
+    public string vehicleChoice = "Sports Car";
+
+    // vehicles___
+
+    //sports car
+    SportsCar Ferrari = new SportsCar(); 
+    //trophy truck
+    TrophyTruck BajaTruck = new TrophyTruck();
+    //rally car
+    RallyCar SubaruImpressa = new RallyCar();
+    //dirt bike
+    DirtBike Yamaha450f = new DirtBike();
+    //Game Timer
+    public static void GameTimer()
+    {
+        System.Threading.Thread.Sleep(1500);
+
+    }
 }
+

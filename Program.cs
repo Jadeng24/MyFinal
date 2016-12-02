@@ -7,6 +7,7 @@ namespace ConsoleApplication
         public static Game myGame = new Game();
         public static void Main(string[] args)
         {
+            
             Console.WriteLine("Welcome to the Road Race! A Role playing game.");
 
             var arr = new[]
@@ -41,11 +42,12 @@ namespace ConsoleApplication
                 myGame.Start();
 
         }
+     
     }
 }
 /* Here are the requirements to the final._______________________
 Base Program using .Net or Unity using C#
-5 int Variables
+* 5 int Variables 
 5 String Variables
 5 Object Variables 
 3 Functions without Parameters
