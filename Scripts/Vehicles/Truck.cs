@@ -2,9 +2,15 @@ using System;
 //Trophy Truck (Racing rally truck)
 
 //Top Speed, Acceleration, Handling.
-public class TrophyTruck {
-    public  string TruckName = "Baja Redbull Truck";
-    public  int TopSpeed = 100; //mph
-    public  int Acceleration = 70;
-    public  int Handling = 90;
+public class TrophyTruck : Car
+{
+    public TrophyTruck()
+    {
+        Type = "Trophy Truck";
+        CarName = "Baja Redbull Truck"; 
+        TopSpeed = 100;
+        Acceleration = 70;
+        Handling = 90;
+    }
+
 }

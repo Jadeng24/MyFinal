@@ -57,17 +57,28 @@ public class Game
         switch (vehicleChoice)
         {
             case "sports car":
-                Console.WriteLine(" \nYou have chosen a Sports Car! Your sports car is a " + Ferrari.CarName + " \n ---Top speed is: " + Ferrari.TopSpeed + " \n ---Acceleration is: " + Ferrari.Acceleration + " \n ---Handling is: " + Ferrari.Handling + "% ");
+               CarInfo(Ferrari);
                 break;
             case "trophy truck":
+           CarInfo(TrophyTruck);
                 break;
             case "rally car":
+           CarInfo(RallyCar);
                 break;
             case "dirt bike":
+            CarInfo(DirtBike);
                 break;
             default:
                 break;
         }
+
+
+
+
+    }
+// here is my function for displaying the vehicle statistics
+    public void CarInfo(Car obj) {
+         Console.WriteLine(" \nYou have chosen a " + obj.Type + "! Your sports car is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
     }
 
 
@@ -79,7 +90,7 @@ public class Game
     public string password;
 
     // vehicle choice
-    public string vehicleChoice = "Sports Car";
+    public string vehicleChoice = "sports car";
 
     // vehicles___
 
@@ -91,9 +102,11 @@ public class Game
     RallyCar SubaruImpressa = new RallyCar();
     //dirt bike
     DirtBike Yamaha450f = new DirtBike();
+    Opponent 
     //Game Timer
     public static void GameTimer()
     {
+        
         System.Threading.Thread.Sleep(1500);
 
     }
