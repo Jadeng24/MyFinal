@@ -103,7 +103,7 @@ public class Game
     RallyCar SubaruImpressa = new RallyCar();
     //dirt bike
     DirtBike Yamaha450f = new DirtBike();
-    Opponent
+    
     //Game Timer
     public static void GameTimer()
     {
