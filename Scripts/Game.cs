@@ -60,13 +60,13 @@ public class Game
                 CarInfo(Ferrari);
                 break;
             case "trophy truck":
-                CarInfo(TrophyTruck);
+                CarInfo(BajaTruck);
                 break;
             case "rally car":
-                CarInfo(RallyCar);
+                CarInfo(SubaruImpressa);
                 break;
             case "dirt bike":
-                CarInfo(DirtBike);
+                CarInfo(Yamaha450f);
                 break;
             default:
                 break;
