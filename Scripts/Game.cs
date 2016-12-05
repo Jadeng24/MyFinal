@@ -50,23 +50,23 @@ public class Game
             GameTimer();
         }
         Console.WriteLine("     \n \n \nNow its time to choose your vehicle. \n   In Road Race, there is a wide variety of vehicles to choose from. \n     PRESS ANY KEY TO CONTINUE . . .");
-            Console.ReadKey();
+        Console.ReadKey();
         Console.WriteLine("  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \nEach vehicle has different attributes of\n    TOP SPEED\n    ACCELERATION and\n    HANDLING. \n Now Choose Between Sports Car, Trophy Truck, Rally Car, or Dirt Bike.");
         vehicleChoice = Console.ReadLine().ToLower();
 
         switch (vehicleChoice)
         {
             case "sports car":
-               CarInfo(Ferrari);
+                CarInfo(Ferrari);
                 break;
             case "trophy truck":
-           CarInfo(TrophyTruck);
+                CarInfo(TrophyTruck);
                 break;
             case "rally car":
-           CarInfo(RallyCar);
+                CarInfo(RallyCar);
                 break;
             case "dirt bike":
-            CarInfo(DirtBike);
+                CarInfo(DirtBike);
                 break;
             default:
                 break;
@@ -76,9 +76,10 @@ public class Game
 
 
     }
-// here is my function for displaying the vehicle statistics
-    public void CarInfo(Car obj) {
-         Console.WriteLine(" \nYou have chosen a " + obj.Type + "! Your sports car is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
+    // here is my function for displaying the vehicle statistics
+    public void CarInfo(Car obj)
+    {
+        Console.WriteLine(" \nYou have chosen a " + obj.Type + "! Your sports car is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
     }
 
 
@@ -95,18 +96,18 @@ public class Game
     // vehicles___
 
     //sports car
-    SportsCar Ferrari = new SportsCar(); 
+    SportsCar Ferrari = new SportsCar();
     //trophy truck
     TrophyTruck BajaTruck = new TrophyTruck();
     //rally car
     RallyCar SubaruImpressa = new RallyCar();
     //dirt bike
     DirtBike Yamaha450f = new DirtBike();
-    Opponent 
+    Opponent
     //Game Timer
     public static void GameTimer()
     {
-        
+
         System.Threading.Thread.Sleep(1500);
 
     }

@@ -2,7 +2,7 @@ using System;
 //Trophy Truck (Racing rally truck)
 
 //Top Speed, Acceleration, Handling.
-public class TrophyTruck : Car
+public class TrophyTruck: Car
 {
     public TrophyTruck()
     {
