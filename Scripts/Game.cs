@@ -71,17 +71,50 @@ public class Game
             default:
                 break;
         }
+        GameTimer();
+        Console.WriteLine("Now its time to race!!! \nPRESS ANY KEY TO CONTINUE . . . \n");
+        Console.WriteLine(" \nWhat will your enemy be . . . ");
 
+        //Random number generator for my enemy etc.
+        
+        Random random = new Random();
+        int randomNumber = random.Next(0, 3);
 
+        switch (randomNumber) {
+            case 0:  
+                EnemyCarInfo(Lamborgini);
+                break;
+            case 1:
+                EnemyCarInfo(TrophyTruck);
+                break;
+            case 2:
+                EnemyCarInfo(ToyotaRav4);
+                break;
+            case 3:
+                EnemyCarInfo(KTM450);
+                break;
+            default:
+            System.Console.WriteLine("You are going up against no one..");
+                
+                break;
+        }
 
 
     }
+
+
     // here is my function for displaying the vehicle statistics
     public void CarInfo(Car obj)
     {
         Console.WriteLine(" \nYou have chosen a " + obj.Type + "! Your sports car is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
     }
 
+    public void EnemyCarInfo(Car obj)
+    {
+        Console.WriteLine(" \nYou are going up against a " + obj.Type + "! Your Enemy Vehicle is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
+    }
+
+   
 
 
     //here are my attributes to my game.__________________________________________________
@@ -103,7 +136,25 @@ public class Game
     RallyCar SubaruImpressa = new RallyCar();
     //dirt bike
     DirtBike Yamaha450f = new DirtBike();
-    
+
+
+    //Enemy vehicles
+    EnemySportsCar Lamborgini = new EnemySportsCar();
+    //trophy truck
+    EnemyTrophyTruck TrophyTruck = new EnemyTrophyTruck();
+    //rally car
+    EnemyRallyCar ToyotaRav4 = new EnemyRallyCar();
+    //dirt bike
+    EnemyDirtBike KTM450 = new EnemyDirtBike();
+
+
+
+
+
+
+
+
+
     //Game Timer
     public static void GameTimer()
     {
@@ -111,5 +162,9 @@ public class Game
         System.Threading.Thread.Sleep(1500);
 
     }
+
 }
+
+
+
 
