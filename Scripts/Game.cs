@@ -26,9 +26,16 @@ public class Game {
         Console.WriteLine("Please type in your username.");
         name = Console.ReadLine();
         Console.WriteLine("Your username is " + name);
-        
-    
-    
+           
+           public int ammoCount = 4;
+
+    //automatic weapon 
+    public void Fire() {
+        for (int i = ammoCount; i > 0; i--){
+            ammoCount--;
+            Console.WriteLine(ammoCount);
+        }
+
 
 
     
