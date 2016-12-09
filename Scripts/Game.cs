@@ -16,15 +16,20 @@ decreased according to the price of the item bought.
 
 */
 //Game Class
-public class Game {   
-    public Game () {
-        
-    }
+public class Game
+{
+
     //below is my game from beginning to end.
-    public void Start () {
-        Console.WriteLine("This game is all about Customizing your car and racing against other players! ");
-        Console.WriteLine("Please type in your username.");
+    public void Start()
+    {
+
+
+        Console.WriteLine(" \nThis game is all about Customizing your car and racing against other players! ");
+        GameTimer();
+        //enter name
+        Console.WriteLine("   \nPlease type in your username.");
         name = Console.ReadLine();
+<<<<<<< HEAD
         Console.WriteLine("Your username is " + name);
            
            public int ammoCount = 4;
@@ -36,16 +41,144 @@ public class Game {
             Console.WriteLine(ammoCount);
         }
 
+=======
+        GameTimer();
+        Console.WriteLine("Your username is_____" + name + "_____.");
+        GameTimer();
+
+        //enter Password
+        Console.WriteLine("   \nPlease Enter a password", "Password must have a length of 4 or more.");
+        password = Console.ReadLine();
+        GameTimer();
+        if (password.Length > 4)
+        {
+            Console.WriteLine("For now on, your password is_____" + password + "____.");
+        }
+        else if (password.Length <= 4)
+        {
+            Console.WriteLine("Sorry, you must Enter a valid password with 5 or more letters.");
+
+            password = Console.ReadLine();
+            Console.WriteLine(password + " is much better.");
+            GameTimer();
+        }
+        Console.WriteLine("     \n \n \nNow its time to choose your vehicle. \n   In Road Race, there is a wide variety of vehicles to choose from. \n     PRESS ANY KEY TO CONTINUE . . .");
+        Console.ReadKey();
+        Console.WriteLine("  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \nEach vehicle has different attributes of\n    TOP SPEED\n    ACCELERATION and\n    HANDLING. \n Now Choose Between Sports Car, Trophy Truck, Rally Car, or Dirt Bike.");
+        vehicleChoice = Console.ReadLine().ToLower();
+
+        switch (vehicleChoice)
+        {
+            case "sports car":
+                CarInfo(Ferrari);
+                break;
+            case "trophy truck":
+                CarInfo(BajaTruck);
+                break;
+            case "rally car":
+                CarInfo(SubaruImpressa);
+                break;
+            case "dirt bike":
+                CarInfo(Yamaha450f);
+                break;
+            default:
+                break;
+        }
+        GameTimer();
+        Console.WriteLine("Now its time to race!!! \nPRESS ANY KEY TO CONTINUE . . . \n");
+        Console.WriteLine(" \nWhat will your enemy be . . . ");
+
+        //Random number generator for my enemy etc.
+        
+        Random random = new Random();
+        int randomNumber = random.Next(0, 3);
+
+        switch (randomNumber) {
+            case 0:  
+                EnemyCarInfo(Lamborgini);
+                break;
+            case 1:
+                EnemyCarInfo(TrophyTruck);
+                break;
+            case 2:
+                EnemyCarInfo(ToyotaRav4);
+                break;
+            case 3:
+                EnemyCarInfo(KTM450);
+                break;
+            default:
+            System.Console.WriteLine("You are going up against no one..");
+                
+                break;
+        }
+>>>>>>> master
 
 
-    
     }
-    
+
+
+    // here is my function for displaying the vehicle statistics
+    public void CarInfo(Car obj)
+    {
+        Console.WriteLine(" \nYou have chosen a " + obj.Type + "! Your sports car is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
+    }
+
+    public void EnemyCarInfo(Car obj)
+    {
+        Console.WriteLine(" \nYou are going up against a " + obj.Type + "! Your Enemy Vehicle is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
+    }
+
+   
+
+
+    //here are my attributes to my game.__________________________________________________
+
+    //Player name & password
+    public string name;
+    public string password;
+
+    // vehicle choice
+    public string vehicleChoice = "sports car";
+
+    // vehicles___
+
+    //sports car
+    SportsCar Ferrari = new SportsCar();
+    //trophy truck
+    TrophyTruck BajaTruck = new TrophyTruck();
+    //rally car
+    RallyCar SubaruImpressa = new RallyCar();
+    //dirt bike
+    DirtBike Yamaha450f = new DirtBike();
+
+
+    //Enemy vehicles
+    EnemySportsCar Lamborgini = new EnemySportsCar();
+    //trophy truck
+    EnemyTrophyTruck TrophyTruck = new EnemyTrophyTruck();
+    //rally car
+    EnemyRallyCar ToyotaRav4 = new EnemyRallyCar();
+    //dirt bike
+    EnemyDirtBike KTM450 = new EnemyDirtBike();
 
 
 
-//here are my attributes to my game.__________________________________________________
 
-//Player name
-public string name; 
+
+
+
+
+
+    //Game Timer
+    public static void GameTimer()
+    {
+
+        System.Threading.Thread.Sleep(1500);
+
+    }
+
 }
+
+
+
+

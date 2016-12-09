@@ -2,13 +2,13 @@ using System;
 //Sports Car (Ferrarri
 
 //Top Speed, Acceleration, Handling.
-public class SportsCar: Car
+public class EnemySportsCar: Car
 {
-    public SportsCar() 
+    public EnemySportsCar() 
     {
         Type = "Sports Car";
-        CarName = "Ferarri";
-        TopSpeed = 180;
+        CarName = "Lamborgini";
+        TopSpeed = 200;
         Acceleration = 90;
         Handling = 80;
     }

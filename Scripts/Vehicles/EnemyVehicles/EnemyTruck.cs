@@ -2,13 +2,13 @@ using System;
 //Trophy Truck (Racing rally truck)
 
 //Top Speed, Acceleration, Handling.
-public class TrophyTruck: Car
+public class EnemyTrophyTruck: Car
 {
-    public TrophyTruck()
+    public EnemyTrophyTruck()
     {
         Type = "Trophy Truck";
-        CarName = "Baja Redbull Truck"; 
-        TopSpeed = 100;
+        CarName = "Monster Energy Truck"; 
+        TopSpeed = 90;
         Acceleration = 70;
         Handling = 90;
     }

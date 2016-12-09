@@ -2,11 +2,11 @@ using System;
 //Rally Car (Subaru Impreza)
 
 //Top Speed, Acceleration, Handling.
-public class RallyCar: Car {
-    public RallyCar() {
+public class EnemyRallyCar: Car {
+    public EnemyRallyCar() {
         Type = "Rally Car";
-        CarName = "Subaru Impressa";
-        TopSpeed = 120;
+        CarName = "Toyota Rally Rav4";
+        TopSpeed = 130;
         Acceleration = 80;
         Handling = 80;
     }
