@@ -37,7 +37,9 @@ public class Game
 
 
         //Enter Password
+        while(password.Length >= 4) {
 
+        } 
         Console.WriteLine("   \nPlease Enter a password", "Password must have a length of 4 or more.");
         password = Console.ReadLine();
         GameTimer();
@@ -83,6 +85,7 @@ public class Game
         }
         GameTimer();
         Console.WriteLine("Now its time to race!!! \nPRESS ANY KEY TO CONTINUE . . . \n");
+        Console.ReadKey();
         Console.WriteLine(" \nWhat will your opponent be . . . ");
 
         //Random number generator for my enemy etc.
@@ -149,8 +152,10 @@ public class Game
             System.Console.WriteLine("You entered an invalid option.. \nYou give me no choice but to make you race now!");
         }
 
-
+        public bool Race = true;
+        //time to race
         
+
         
        
 
