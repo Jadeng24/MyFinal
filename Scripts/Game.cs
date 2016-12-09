@@ -29,24 +29,15 @@ public class Game
         //enter name
         Console.WriteLine("   \nPlease type in your username.");
         name = Console.ReadLine();
-<<<<<<< HEAD
+
         Console.WriteLine("Your username is " + name);
-           
-           public int ammoCount = 4;
-
-    //automatic weapon 
-    public void Fire() {
-        for (int i = ammoCount; i > 0; i--){
-            ammoCount--;
-            Console.WriteLine(ammoCount);
-        }
-
-=======
         GameTimer();
         Console.WriteLine("Your username is_____" + name + "_____.");
         GameTimer();
 
-        //enter Password
+
+        //Enter Password
+
         Console.WriteLine("   \nPlease Enter a password", "Password must have a length of 4 or more.");
         password = Console.ReadLine();
         GameTimer();
@@ -62,6 +53,12 @@ public class Game
             Console.WriteLine(password + " is much better.");
             GameTimer();
         }
+
+
+
+        //Now time for the user to pick their vehicle. Below will display the different choices. 
+
+
         Console.WriteLine("     \n \n \nNow its time to choose your vehicle. \n   In Road Race, there is a wide variety of vehicles to choose from. \n     PRESS ANY KEY TO CONTINUE . . .");
         Console.ReadKey();
         Console.WriteLine("  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \nEach vehicle has different attributes of\n    TOP SPEED\n    ACCELERATION and\n    HANDLING. \n Now Choose Between Sports Car, Trophy Truck, Rally Car, or Dirt Bike.");
@@ -86,15 +83,16 @@ public class Game
         }
         GameTimer();
         Console.WriteLine("Now its time to race!!! \nPRESS ANY KEY TO CONTINUE . . . \n");
-        Console.WriteLine(" \nWhat will your enemy be . . . ");
+        Console.WriteLine(" \nWhat will your opponent be . . . ");
 
         //Random number generator for my enemy etc.
-        
-        Random random = new Random();
-        int randomNumber = random.Next(0, 3);
 
-        switch (randomNumber) {
-            case 0:  
+        
+        int EnemyNumber = numberGenerator.Next(0, 3);
+
+        switch (EnemyNumber)
+        {
+            case 0:
                 EnemyCarInfo(Lamborgini);
                 break;
             case 1:
@@ -107,28 +105,59 @@ public class Game
                 EnemyCarInfo(KTM450);
                 break;
             default:
-            System.Console.WriteLine("You are going up against no one..");
-                
+                System.Console.WriteLine("You are going up against no one..");
                 break;
         }
->>>>>>> master
+
+        //now i want to make a race between the player and the opponentVehicle.
+        Console.WriteLine("Now its almost time to race! Would you like to customize your " + vehicleChoice + " before you race? \nType yes or no. . .");
+        string answer = Console.ReadLine().ToLower();
+        
+        if (answer == "yes") {
+            Console.WriteLine("\n \nAlright! Lets get your " + vehicleChoice + " Some better parts!");
+        // Customization before race.
+        
+        System.Console.WriteLine("What parts would you like to purchase? \n \n_____AVAILABLE PARTS_____ \n   - Tires \n  - Engine \n  - Body");
+        string parts = Console.ReadLine().ToLower();
+        GameTimer();
+        
+        switch (parts)
+        {
+            case "tires":
+                carChoice();
+
+                break;
+            case "engine":
+            carChoice();
+                
+                break;
+            case "body":
+                carChoice();
+                break;
+            default:
+                System.Console.WriteLine(parts + " is an invalid option. You should have spelled correctly. . . Now its race time! \n");
+                break;
+        }
+
+
+
+
+
+        } else if (answer == "no") {
+                Console.WriteLine(" \nVery well.. I guess you are ready to race. \n Good luck racing.");
+        } else {
+            System.Console.WriteLine("You entered an invalid option.. \nYou give me no choice but to make you race now!");
+        }
+
+
+        
+        
+       
+
 
 
     }
-
-
-    // here is my function for displaying the vehicle statistics
-    public void CarInfo(Car obj)
-    {
-        Console.WriteLine(" \nYou have chosen a " + obj.Type + "! Your sports car is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
-    }
-
-    public void EnemyCarInfo(Car obj)
-    {
-        Console.WriteLine(" \nYou are going up against a " + obj.Type + "! Your Enemy Vehicle is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
-    }
-
-   
+    
 
 
     //here are my attributes to my game.__________________________________________________
@@ -163,11 +192,8 @@ public class Game
 
 
 
-
-
-
-
-
+    // Random Number generator
+    Random numberGenerator = new Random();
 
     //Game Timer
     public static void GameTimer()
@@ -176,6 +202,29 @@ public class Game
         System.Threading.Thread.Sleep(1500);
 
     }
+
+
+
+
+    // here is my function displaying my vehicle parts. 
+    public void carChoice() {
+        Console.WriteLine(" The new part you purchased will definitely help you in your race!");
+        Console.WriteLine(" ");
+        
+}
+
+
+    // here is my function for displaying the vehicle statistics
+    public void CarInfo(Car obj)
+    {
+        Console.WriteLine(" \nYou have chosen a " + obj.Type + "! Your sports car is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
+    }
+    //information for enemy vehicle
+    public void EnemyCarInfo(Car obj)
+    {
+        Console.WriteLine(" \nYou are going up against a " + obj.Type + "! Your opponents vehicle is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
+    }
+
 
 }
 
