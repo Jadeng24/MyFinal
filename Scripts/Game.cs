@@ -37,9 +37,9 @@ public class Game
 
 
         //Enter Password
-        while(password.Length >= 4) {
+        
 
-        } 
+         
         Console.WriteLine("   \nPlease Enter a password", "Password must have a length of 4 or more.");
         password = Console.ReadLine();
         GameTimer();
@@ -97,15 +97,19 @@ public class Game
         {
             case 0:
                 EnemyCarInfo(Lamborgini);
+                EnemyCarName = "Lambogini"; 
                 break;
             case 1:
                 EnemyCarInfo(TrophyTruck);
+                EnemyCarName = "TrophyTruck"; 
                 break;
             case 2:
                 EnemyCarInfo(ToyotaRav4);
+                EnemyCarName = "ToyotaRav4"; 
                 break;
             case 3:
                 EnemyCarInfo(KTM450);
+                EnemyCarName = "KTM450"; 
                 break;
             default:
                 System.Console.WriteLine("You are going up against no one..");
@@ -151,19 +155,49 @@ public class Game
         } else {
             System.Console.WriteLine("You entered an invalid option.. \nYou give me no choice but to make you race now!");
         }
+    
 
-        public bool Race = true;
-        //time to race
-        
-
-        
+        Console.WriteLine("Now its time to race!");
+        GameTimer();
+        Console.WriteLine("3");
+        GameTimer();
+        Console.WriteLine("2");
+        GameTimer();
+        Console.WriteLine("1");
+        GameTimer();
+        Console.WriteLine("Go!!!");
+        GameTimer(); 
        
+
+        int raceStart = numberGenerator.Next(0, 2);
+
+        switch (raceStart)
+        {
+            case 0:
+                Console.WriteLine("Your car stalled! You quickly start it and accelerate behind the " + EnemyCarName);
+        GameTimer(); 
+                break;
+            case 1:
+                Console.WriteLine("You accelerate in front of the " + EnemyCarName);
+        GameTimer(); 
+                break;
+            case 2:
+                Console.WriteLine("The " + EnemyCarName + " accelerates ahead of you.");
+        GameTimer(); 
+                break;
+            default:
+                System.Console.WriteLine("You both accelerate and are neck and neck. ");
+                break;
+        }
+        
+        
 
 
 
     }
     
-
+    // race
+    public string EnemyCarName; 
 
     //here are my attributes to my game.__________________________________________________
 
