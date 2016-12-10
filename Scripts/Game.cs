@@ -32,31 +32,37 @@ public class Game
 
         Console.WriteLine("Your username is " + name);
         GameTimer();
-        Console.WriteLine("Your username is_____" + name + "_____.");
-        GameTimer();
+
 
 
         //Enter Password
-        
-
-         
-        Console.WriteLine("   \nPlease Enter a password", "Password must have a length of 4 or more.");
+        IncorrectLoop:
+        Console.WriteLine("   \nPlease Enter a password. \nNOTE: Password must have a length of 4 or more.");
         password = Console.ReadLine();
         GameTimer();
+
+        while (password.Length >= 4)
+        {
+            Console.WriteLine("Your password is " + password + ". ");
+            break;
+        }
+        
         if (password.Length > 4)
         {
-            Console.WriteLine("For now on, your password is_____" + password + "____.");
-        }
-        else if (password.Length <= 4)
-        {
-            Console.WriteLine("Sorry, you must Enter a valid password with 5 or more letters.");
 
+        }
+        else if (password.Length < 4)
+        {
+            Console.WriteLine("Sorry, you must Enter a valid password with 4 or more letters.");
+            goto IncorrectLoop; 
+            /*
             password = Console.ReadLine();
             Console.WriteLine(password + " is much better.");
-            GameTimer();
+            */
         }
 
 
+            GameTimer();
 
         //Now time for the user to pick their vehicle. Below will display the different choices. 
 
@@ -90,26 +96,26 @@ public class Game
 
         //Random number generator for my enemy etc.
 
-        
+
         int EnemyNumber = numberGenerator.Next(0, 3);
 
         switch (EnemyNumber)
         {
             case 0:
                 EnemyCarInfo(Lamborgini);
-                EnemyCarName = "Lambogini"; 
+                EnemyCarName = "Lamborgini";
                 break;
             case 1:
                 EnemyCarInfo(TrophyTruck);
-                EnemyCarName = "TrophyTruck"; 
+                EnemyCarName = "Trophy Truck";
                 break;
             case 2:
                 EnemyCarInfo(ToyotaRav4);
-                EnemyCarName = "ToyotaRav4"; 
+                EnemyCarName = "Toyota Rav4";
                 break;
             case 3:
                 EnemyCarInfo(KTM450);
-                EnemyCarName = "KTM450"; 
+                EnemyCarName = "KTM 450";
                 break;
             default:
                 System.Console.WriteLine("You are going up against no one..");
@@ -119,88 +125,113 @@ public class Game
         //now i want to make a race between the player and the opponentVehicle.
         Console.WriteLine("Now its almost time to race! Would you like to customize your " + vehicleChoice + " before you race? \nType yes or no. . .");
         string answer = Console.ReadLine().ToLower();
-        
-        if (answer == "yes") {
-            Console.WriteLine("\n \nAlright! Lets get your " + vehicleChoice + " Some better parts!");
-        // Customization before race.
-        
-        System.Console.WriteLine("What parts would you like to purchase? \n \n_____AVAILABLE PARTS_____ \n   - Tires \n  - Engine \n  - Body");
-        string parts = Console.ReadLine().ToLower();
-        GameTimer();
-        
-        switch (parts)
+
+        if (answer == "yes")
         {
-            case "tires":
-                carChoice();
+            Console.WriteLine("\n \nAlright! Lets get your " + vehicleChoice + " some better parts!");
+            // Customization before race.
 
-                break;
-            case "engine":
-            carChoice();
-                
-                break;
-            case "body":
-                carChoice();
-                break;
-            default:
-                System.Console.WriteLine(parts + " is an invalid option. You should have spelled correctly. . . Now its race time! \n");
-                break;
+            System.Console.WriteLine("What parts would you like to purchase? \n \n_____AVAILABLE PARTS_____ \n   - Tires \n  - Engine \n  - Body");
+            string parts = Console.ReadLine().ToLower();
+            GameTimer();
+
+            switch (parts)
+            {
+                case "tires":
+                    carChoice();
+
+                    break;
+                case "engine":
+                    carChoice();
+
+                    break;
+                case "body":
+                    carChoice();
+                    break;
+                default:
+                    System.Console.WriteLine(parts + " is an invalid option. You should have spelled correctly. . . Now its race time! \n");
+                    break;
+            }
+
+
         }
-
-
-
-
-
-        } else if (answer == "no") {
-                Console.WriteLine(" \nVery well.. I guess you are ready to race. \n Good luck racing.");
-        } else {
+        else if (answer == "no")
+        {
+            Console.WriteLine(" \nVery well.. I guess you are ready to race. \n Good luck racing.");
+        }
+        else
+        {
             System.Console.WriteLine("You entered an invalid option.. \nYou give me no choice but to make you race now!");
         }
-    
 
-        Console.WriteLine("Now its time to race!");
+
+        Console.WriteLine("Now its time to race! \nPRESS ANY KEY TO CONTINUE . . .");
         GameTimer();
-        Console.WriteLine("3");
-        GameTimer();
-        Console.WriteLine("2");
-        GameTimer();
-        Console.WriteLine("1");
-        GameTimer();
+        
+        
+        //this is where the race begins. it begins as the player pushes a key. 
+
+        //below is a count down timer from 3 to 1 then says Go!!
+        int i = 3;
+        while (i > 0)
+        {
+            Console.WriteLine(i);
+            GameTimer();
+            i--;
+        }
         Console.WriteLine("Go!!!");
-        GameTimer(); 
-       
+        GameTimer();
 
-        int raceStart = numberGenerator.Next(0, 2);
+        //this is my random first set of sayings. These will display randomly giving the race a different experience every time 
+        int raceStart = numberGenerator.Next(0, 3);
 
         switch (raceStart)
         {
             case 0:
-                Console.WriteLine("Your car stalled! You quickly start it and accelerate behind the " + EnemyCarName);
-        GameTimer(); 
+                Console.WriteLine("Your " + vehicleChoice + " stalled! You quickly start it and accelerate behind the " + EnemyCarName + ".");
+                GameTimer();
                 break;
             case 1:
-                Console.WriteLine("You accelerate in front of the " + EnemyCarName);
-        GameTimer(); 
+                Console.WriteLine("You accelerate in front of the " + EnemyCarName + ". ");
+                GameTimer();
                 break;
             case 2:
                 Console.WriteLine("The " + EnemyCarName + " accelerates ahead of you.");
-        GameTimer(); 
+                GameTimer();
                 break;
             default:
                 System.Console.WriteLine("You both accelerate and are neck and neck. ");
                 break;
         }
-        
-        
+        // again another set of random 
+        int raceMid = numberGenerator.Next(0, 3);
+        switch (raceMid)
+        {
+            case 0:
+                Console.WriteLine("You push your " + vehicleChoice + " to the limit.");
+                GameTimer();
+                break;
+            case 1:
+                Console.WriteLine("You do all you can to win");
+                GameTimer();
+                break;
+            case 2:
+                Console.WriteLine("You focus more intensly as you think about the grand prize.");
+                GameTimer();
+                break;
+            default:
+                System.Console.WriteLine("You are no just feet behind the opponent " + EnemyCarName + ". ");
+                break;
+        }
 
 
 
 
-
-//end of game ___________________
+        //end of game ___________________
     }
-    
+
     // race
-    public string EnemyCarName; 
+    public string EnemyCarName;
 
     //here are my attributes to my game.__________________________________________________
 
@@ -249,17 +280,18 @@ public class Game
 
 
     // here is my function displaying my vehicle parts. 
-    public void carChoice() {
+    public void carChoice()
+    {
         Console.WriteLine(" The new part you purchased will definitely help you in your race!");
         Console.WriteLine(" ");
-        
-}
+
+    }
 
 
     // here is my function for displaying the vehicle statistics
     public void CarInfo(Car obj)
     {
-        Console.WriteLine(" \nYou have chosen a " + obj.Type + "! Your sports car is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
+        Console.WriteLine(" \nYou have chosen a " + obj.Type + "! Your " + obj.Type + " is a " + obj.CarName + " \n ---Top speed is: " + obj.TopSpeed + " \n ---Acceleration is: " + obj.Acceleration + " \n ---Handling is: " + obj.Handling + "% ");
     }
     //information for enemy vehicle
     public void EnemyCarInfo(Car obj)
