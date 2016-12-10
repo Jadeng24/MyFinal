@@ -8,8 +8,8 @@ public class DirtBike: Car
     {
         Type = "Dirt Bike";
         CarName = "Yamaha 450F"; 
-        TopSpeed = 70;
-        Acceleration = 80;
+        TopSpeed = 80;
+        Acceleration = 90;
         Handling = 60;
     }
 

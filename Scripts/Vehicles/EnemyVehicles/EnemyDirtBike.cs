@@ -9,9 +9,9 @@ public class EnemyDirtBike: Car
     {
         Type = "Dirt Bike";
         CarName = "KTM 450"; 
-        TopSpeed = 80;
-        Acceleration = 80;
-        Handling = 60;
+        TopSpeed = 85;
+        Acceleration = 90;
+        Handling = 55;
     }
 
 }

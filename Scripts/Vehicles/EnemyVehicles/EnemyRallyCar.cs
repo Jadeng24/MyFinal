@@ -7,8 +7,8 @@ public class EnemyRallyCar: Car {
         Type = "Rally Car";
         CarName = "Toyota Rally Rav4";
         TopSpeed = 130;
-        Acceleration = 80;
-        Handling = 80;
+        Acceleration = 90;
+        Handling = 70;
     }
    
 }

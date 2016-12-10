@@ -8,7 +8,7 @@ public class EnemyTrophyTruck: Car
     {
         Type = "Trophy Truck";
         CarName = "Monster Energy Truck"; 
-        TopSpeed = 90;
+        TopSpeed = 110;
         Acceleration = 70;
         Handling = 90;
     }
