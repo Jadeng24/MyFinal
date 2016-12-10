@@ -276,7 +276,7 @@ public class Game
         }
 
         // last set of random race scenarios
-        int raceEnd = numberGenerator.Next(0);
+        int raceEnd = numberGenerator.Next(0,3);
         switch (raceEnd)
         {
             case 0:
@@ -287,13 +287,14 @@ public class Game
             case 1:
                 Console.WriteLine("\nNearing the end of the race, you take a short cut hoping to ensure you win. (press enter)");
                 Console.ReadKey();
+                
                 break;
             case 2:
                 Console.WriteLine("\nWith only 200 yards left, you put the pedal down and give your " + vehicleChoice + "'s engine everything its got!. (press enter)");
                 Console.ReadKey();
                 break;
             default:
-                System.Console.WriteLine("\nYou are now just feet behind the opponent " + EnemyCarName + ". (press enter)");
+                System.Console.WriteLine("\nSeeing the finish line ahead, you decide there is no choice but to disable your " + vehicleChoice + "'s engine computer chip in hope for a higher top speed. (press enter)");
                 Console.ReadKey();
                 break;
         }
@@ -311,9 +312,10 @@ if (VehicleTopSpeed > EnemyTopSpeed) {
 // this else if will give those vehicles with less top speed a chance to still win with a boost factor.
 // this gives the game a chance to win even when you have the slowest against the fastest vehicle.
 } else if (VehicleTopSpeed <= EnemyTopSpeed && NOS == true) {
+    int BeatBySeconds = numberGenerator.Next(2, 10);
     Console.WriteLine("Even with your slow " + vehicleChoice + ", (press enter)");
     Console.ReadKey();
-    Console.WriteLine("You boost forward with your Nitros NOS cartridge and fly past the opponent's " + EnemyCarName + " just before the finish line! (press enter) ");
+    Console.WriteLine("You boost forward with your Nitros NOS cartridge and fly past the opponent's " + EnemyCarName + " just before the finish line beating him by " + BeatBySeconds + " seconds!! \nCONGRATULATIONS! YOU WIN!! (press enter) ");
     Console.ReadKey();
     Console.WriteLine(" \n \n \n     T H E   E N D ! ! ! ");
 }
@@ -367,7 +369,7 @@ if (playAgain == "yes") {
 
 
 
-public bool NOS;
+public bool NOS = false;
 
 
 public string playAgain;
