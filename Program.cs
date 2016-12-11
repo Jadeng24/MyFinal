@@ -7,6 +7,7 @@ namespace ConsoleApplication
         
         public static Game myGame = new Game();
         
+        
         public static void Main(string[] args)
         {
             

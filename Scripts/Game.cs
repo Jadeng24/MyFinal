@@ -20,7 +20,7 @@ public class Game
 {
 
     //below is my game from beginning to end.
-    public void Start()
+    public void  Start()
     {
 
 
@@ -65,26 +65,39 @@ public class Game
     Start:
         if (GameCounter > 1)
         {
-            Console.WriteLine(" \nWelcome back to the Road Race!(press enter)");
-
-            Console.WriteLine("You are now at Level " + GameCounter + ". ");
-            Console.WriteLine("You have $" + WalletAmount + " in your Wallet. (press enter)");
+            Console.WriteLine(" \nWelcome back to the Road Race " + name + "! ");
+            WalletAmount = WalletAmount + 2500;
+            
+            GameLevel();
+            System.Console.WriteLine("You earned a level up bonus of $" + 2500 + "! (press enter");
+            Console.ReadKey();
+            
+            WalletReturn(); //returns the amount in wallet
             Console.ReadKey();
         }
 
-        GameTimer();
+        
 
         //Now time for the user to pick their vehicle. Below will display the different choices. 
 
 
         Console.WriteLine("     \n \n \nNow you choose your vehicle. \nIn Road Race, there is a wide variety of vehicles to choose from. \n     PRESS ANY KEY TO CONTINUE . . .");
         Console.ReadKey();
-        if (GameCounter < 2)
+        if (GameCounter <= 2)
         {
             Console.WriteLine("  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \nEach vehicle has different attributes of\n    TOP SPEED\n    ACCELERATION and\n    HANDLING. ");
 
         }
-
+        switch(GameCounter) {
+            case 2:
+                Console.WriteLine("Congratulations! You have now unlocked the Rally Car! \n");
+                break;
+            case 3:
+                Console.WriteLine("\nCongrats! You have now unlocked the Sports Car!! You have unlocked all the vehicles in the game!");
+                break;
+            default:
+                break;
+        }
     VehicleChoiceLoop: //Loop just in case user enters invalid option
         Console.WriteLine("Choose Between:");
 
@@ -95,18 +108,6 @@ public class Game
         }
         vehicleChoice = Console.ReadLine().ToLower();
 
-
-        switch (GameCounter)
-        {
-            case 2:
-                Console.WriteLine("You have now unlocked the Rally Car! \n");
-                break;
-            case 3:
-                Console.WriteLine("You have now unlocked the Sports Car!! You have unlocked all the vehicles in the game!");
-                break;
-            default:
-                break;
-        }
         switch (vehicleChoice)
         {
             case "sports car":
@@ -216,7 +217,7 @@ public class Game
                 case "tires":
                     if (WalletAmount < 1500)
                     {
-                        Console.WriteLine("You do not have enough money to purchase a " + vehicleChoice + " Please try again.");
+                        Console.WriteLine("You do not have enough money to purchase tires for your " + vehicleChoice + ". Please try again.");
                         goto CustomizeTryAgain;
                     }
                     Console.WriteLine("These new tires will be good for your " + vehicleChoice + "'s acceleration and handling!");
@@ -227,7 +228,7 @@ public class Game
                 case "engine":
                     if (WalletAmount < 8000)
                     {
-                        Console.WriteLine("You do not have enough money to purchase a " + vehicleChoice + " Please try again.");
+                        Console.WriteLine("You do not have enough money to purchase an engine for your " + vehicleChoice + ". Please try again.");
                         goto CustomizeTryAgain;
                     }
                     Console.WriteLine("This new engine will be great for your " + vehicleChoice + "'s top speed and acceleration!");
@@ -239,7 +240,7 @@ public class Game
                 case "transmission":
                     if (WalletAmount < 5000)
                     {
-                        Console.WriteLine("You do not have enough money to purchase a " + vehicleChoice + " Please try again.");
+                        Console.WriteLine("You do not have enough money to purchase a transmission for your " + vehicleChoice + ". Please try again.");
                         goto CustomizeTryAgain;
                     }
                     Console.WriteLine("This new transmission will be great for your " + vehicleChoice + "'s acceleration!");
@@ -251,7 +252,7 @@ public class Game
                 case "body":
                     if (WalletAmount < 2000)
                     {
-                        Console.WriteLine("You do not have enough money to purchase a " + vehicleChoice + " Please try again.");
+                        Console.WriteLine("You do not have enough money to purchase body parts for your " + vehicleChoice + ". Please try again.");
                         goto CustomizeTryAgain;
                     }
                     Console.WriteLine("These new body parts will be great for your " + vehicleChoice + "'s aerodynamics and top speed!");
@@ -331,7 +332,7 @@ public class Game
         switch (raceMid)
         {
             case 0:
-                Console.WriteLine("\nYou push your " + vehicleChoice + " to the limit now ten feet ahead of your opponent. (press enter)");
+                Console.WriteLine("\nYou push your " + vehicleChoice + " to the limit and are now ten feet ahead of your opponent. (press enter)");
                 Console.ReadKey();
                 break;
             case 1:
@@ -380,10 +381,11 @@ public class Game
             Console.ReadKey();
             Console.WriteLine(" your " + vehicleChoice + ", with is amazing top speed of " + VehicleTopSpeed + "MPH (press enter)");
             Console.ReadKey();
-            Console.WriteLine(" manages to pull ahead of the " + EnemyCarName + " and (press enter)");
+            Console.WriteLine(" manages to pull ahead of the " + EnemyCarName + " and you win the race!!! (press enter)");
             Console.ReadKey();
-            Console.WriteLine(" you win the race!!! \nCongratulations, you won $" + CashPrize + "! (press enter) ");
-            WalletAmount = WalletAmount + CashPrize;
+            Console.WriteLine(" \nCongratulations, you won $" + CashPrize + "! (press enter) ");
+            WalletAmount = WalletAmount + CashPrize; 
+            WalletReturn(); //returns the amount in wallet
             System.Console.WriteLine(" \n \n \n     T H E   E N D ! ! ! ");
             GameTimer();
             // this else if will give those vehicles with less top speed a chance to still win with a boost factor.
@@ -396,6 +398,7 @@ public class Game
             Console.ReadKey();
             Console.WriteLine("You boost forward with your Nitros NOS cartridge and fly past the opponent's " + EnemyCarName + " just before the finish line \nbeating him by " + BeatBySeconds + " seconds!! \nCONGRATULATIONS! You won the race! \nCash Prize: $" + CashPrize + "! (press enter) ");
             WalletAmount = WalletAmount + CashPrize;
+            WalletReturn();
             Console.ReadKey();
             Console.WriteLine(" \n \n \n     T H E   E N D ! ! ! ");
         }
@@ -449,7 +452,13 @@ public class Game
 
     // this is how much money the player has to spend in the Body shop.
     public int WalletAmount = 6000;
+    public void WalletReturn() {
+        Console.WriteLine("Your wallet amount is now: $" + WalletAmount + ". (press enter)");
+    }
     public int GameCounter = 1;
+    public void GameLevel() {
+        Console.WriteLine("You are now at Level " + GameCounter + ". (press enter)");
+    }
 
 
     public bool NOS = false;
