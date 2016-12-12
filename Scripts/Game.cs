@@ -23,8 +23,7 @@ public class Game
     //below is my game from beginning to end.
     public void  Start()
     {
-
-
+        
         Console.WriteLine(" \nThis game is all about customizing your car and racing against other players! ");
         GameTimer();
         //enter name
@@ -36,8 +35,8 @@ public class Game
 
 
 
-    //Enter Password
-    IncorrectLoop:
+        //Enter Password
+        IncorrectLoop:
         Console.WriteLine("   \nPlease enter a password. \nNOTE: Password must have a length of 4 or more.");
         password = Console.ReadLine();
         
@@ -286,6 +285,7 @@ public class Game
         //this is where the race begins. it begins as the player pushes a key. 
 
         //below is a count down timer from 3 to 1 then says Go!!
+       
         int i = 3;
         while (i > 0)
         {
@@ -433,6 +433,7 @@ public class Game
             System.Console.WriteLine("You need to slow down on your keyboard typing. \nYou have entered an invalid option. Please try again.");
             GameTimer();
             goto PlayAgainChoiceLoop;
+            
         }
 
         //end of game ___________________
@@ -470,7 +471,9 @@ public class Game
 
     //vehicle strings
 List<string> vehicles = new List<string>(new string[] { "Sports Car - Price $150,000", "Rally Car- Price: $100,000", "Trophy Truck - Price: $50,000", "Dirt Bike - Price: $25,000" });
-    
+
+
+List<string> EnemyVehicleNames = new List<string>(new string[] { "Lamborgini", "Monster Energy Truck", "Toyota Rav4", "KTM 450", } );
     public string EnemyCarName;
     public int VehicleTopSpeed;
 
@@ -512,6 +515,7 @@ List<string> vehicles = new List<string>(new string[] { "Sports Car - Price $150
 
     // Random Number generator
     Random numberGenerator = new Random();
+    List<string> count = new List<string>(new string[] {"1000","2000","3000" });
 
     //Game Timer
     public static void GameTimer()
