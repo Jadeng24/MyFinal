@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 /*
 I have decided i want to make a game that has to do with Cars.
 First I need to do the basics like ask for UserName, Password, Age, and then 
@@ -39,7 +40,7 @@ public class Game
     IncorrectLoop:
         Console.WriteLine("   \nPlease enter a password. \nNOTE: Password must have a length of 4 or more.");
         password = Console.ReadLine();
-        GameTimer();
+        
 
         while (password.Length >= 4)
         {
@@ -167,14 +168,14 @@ public class Game
         //Random number generator for my enemy etc.
 
 
-        int EnemyNumber = numberGenerator.Next(0, 3);
+        int EnemyNumber = numberGenerator.Next(0, 5);
 
         switch (EnemyNumber)
         {
             case 0:
-                EnemyCarInfo(Lamborgini);
-                EnemyCarName = "Lamborgini";
-                EnemyTopSpeed = 200;
+                EnemyCarInfo(KTM450);
+                EnemyCarName = "KTM 450";
+                EnemyTopSpeed = 85;
                 break;
             case 1:
                 EnemyCarInfo(TrophyTruck);
@@ -186,13 +187,15 @@ public class Game
                 EnemyCarName = "Toyota Rav4";
                 EnemyTopSpeed = 130;
                 break;
-            case 3:
-                EnemyCarInfo(KTM450);
-                EnemyCarName = "KTM 450";
-                EnemyTopSpeed = 85;
-                break;
+            case 3:   
+                EnemyCarInfo(Lamborgini);
+                EnemyCarName = "Lamborgini";
+                EnemyTopSpeed = 200;
+                break;   
             default:
-                System.Console.WriteLine("You are going up against no one..");
+                EnemyCarInfo(TrophyTruck);
+                EnemyCarName = "Monster Energy Truck";
+                EnemyTopSpeed = 110;
                 break;
         }
 
@@ -260,7 +263,8 @@ public class Game
                     WalletAmount = WalletAmount - 2000;
                     Console.WriteLine("Your new top speed is " + VehicleTopSpeed + "MPH. ");
                     break;
-
+                case "no":
+                    break;
                 default:
                     Console.WriteLine(parts + " is an invalid option. Please try again \n");
                     goto CustomizeTryAgain;
@@ -269,19 +273,10 @@ public class Game
 
 
         }
-        else if (answer == "no")
-        {
-            Console.WriteLine(" \nVery well.. I guess you are ready to race. \n Good luck racing.");
-        }
-        else
-        {
-            System.Console.WriteLine("You entered an invalid option.. \nYou give me no choice but to make you race now!");
-        }
 
 
         Console.WriteLine("Now its time to race! \nPRESS ANY KEY TO CONTINUE . . .");
         Console.ReadKey();
-        GameTimer();
 
 
 
@@ -474,7 +469,8 @@ public class Game
 
 
     //vehicle strings
-    string[] vehicles = { "Sports Car - Price $150,000", "Rally Car- Price: $100,000", "Trophy Truck - Price: $50,000", "Dirt Bike - Price: $25,000" };
+List<string> vehicles = new List<string>(new string[] { "Sports Car - Price $150,000", "Rally Car- Price: $100,000", "Trophy Truck - Price: $50,000", "Dirt Bike - Price: $25,000" });
+    
     public string EnemyCarName;
     public int VehicleTopSpeed;
 
